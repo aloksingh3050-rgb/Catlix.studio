@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Catalog Studio - Virtual Model Photoshoot</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Landing Page Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Catalog Studio</h1>
+                <h2 class="hero-subtitle">Virtual Model Photoshoot</h2>
+                <p class="hero-tagline">
+                    <strong>Professional Fashion Photos Without the Hassle!</strong><br>
+                    <span class="hindi-text">बिना फोटोशूट के प्रोफेशनल फोटो!</span>
+                </p>
+                
+                <div class="hero-transformation">
+                    <div class="transformation-card">
+                        <div class="before-after-container">
+                            <div class="image-comparison">
+                                <div class="before-image">
+                                    <img src="https://pplx-res.cloudinary.com/image/upload/v1758243971/pplx_project_search_images/e30cd8bd69c29e3468f07b7453f6fd4156bd5f36.png" alt="Before: Basic product photo">
+                                    <span class="image-label">Before</span>
+                                </div>
+                                <div class="arrow">→</div>
+                                <div class="after-image">
+                                    <img src="https://pplx-res.cloudinary.com/image/upload/v1755857688/pplx_project_search_images/1e57574e1092186a8cff7420f7a97242f6f601a2.png" alt="After: Professional model photo">
+                                    <span class="image-label">After</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn--primary btn--lg cta-button" onclick="showMagic()">
+                    ✨ See the Magic ✨
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Comparison Calculator -->
+    <section class="cost-calculator hidden" id="cost-section">
+        <div class="container">
+            <h2>Cost Comparison Calculator</h2>
+            <p class="section-subtitle">See How Much You Save with Virtual Model Shoots</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-controls">
+                    <label for="photo-count">Number of Photos:</label>
+                    <div class="slider-container">
+                        <input type="range" id="photo-count" min="5" max="25" step="5" value="10" class="photo-slider">
+                        <div class="slider-labels">
+                            <span>5</span>
+                            <span>10</span>
+                            <span>15</span>
+                            <span>20</span>
+                            <span>25</span>
+                        </div>
+                    </div>
+                    <div class="selected-count">
+                        <span id="selected-photos">10</span> Photos
+                    </div>
+                </div>
+
+                <div class="cost-comparison-grid">
+                    <div class="cost-card traditional-cost">
+                        <h3>Traditional Photoshoot</h3>
+                        <div class="cost-breakdown">
+                            <div class="cost-item">
+                                <span>Model Fee:</span>
+                                <span id="model-fee">₹8,000</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Studio Rent:</span>
+                                <span id="studio-rent">₹4,000</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Photographer:</span>
+                                <span id="photographer-fee">₹12,000</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Editing:</span>
+                                <span id="editing-fee">₹3,000</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Other Costs:</span>
+                                <span id="other-costs">₹3,000</span>
+                            </div>
+                        </div>
+                        <div class="total-cost traditional-total">
+                            Total: <span id="traditional-total">₹30,000</span>
+                        </div>
+                    </div>
+
+                    <div class="cost-card virtual-cost">
+                        <h3>Virtual Model Shoot</h3>
+                        <div class="virtual-features">
+                            <div class="feature-item">✅ No Model Booking</div>
+                            <div class="feature-item">✅ No Studio Required</div>
+                            <div class="feature-item">✅ Professional Editing Included</div>
+                            <div class="feature-item">✅ 24-48 Hour Delivery</div>
+                        </div>
+                        <div class="total-cost virtual-total">
+                            Total: <span id="virtual-total">₹6,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="savings-display">
+                    <div class="savings-card">
+                        <h3>💰 Your Savings</h3>
+                        <div class="savings-amount">₹<span id="savings-amount">24,000</span></div>
+                        <div class="savings-percentage">Save <span id="savings-percent">80</span>%</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="costChart"></canvas>
+                </div>
+            </div>
+
+            <button class="btn btn--primary cta-button" onclick="showPackages()">
+                View Service Packages 📦
+            </button>
+        </div>
+    </section>
+
+    <!-- Service Packages -->
+    <section class="packages-section hidden" id="packages-section">
+        <div class="container">
+            <h2>Choose Your Perfect Package</h2>
+            <p class="section-subtitle">Professional model photos tailored to your needs</p>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Starter</h3>
+                        <div class="price">₹4,000</div>
+                    </div>
+                    <div class="package-features">
+                        <div class="feature">📸 5 model photos</div>
+                        <div class="feature">👗 2 outfit changes</div>
+                        <div class="feature">🖼️ Basic backgrounds</div>
+                        <div class="feature">📱 Standard formats</div>
+                        <div class="feature">✏️ 1 revision</div>
+                        <div class="feature">⏱️ 48 hours delivery</div>
+                    </div>
+                    <button class="btn btn--outline select-package" data-package="Starter">Select Package</button>
+                </div>
+
+                <div class="package-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="package-header">
+                        <h3>Growth</h3>
+                        <div class="price">₹8,000</div>
+                    </div>
+                    <div class="package-features">
+                        <div class="feature">📸 12 model photos</div>
+                        <div class="feature">👗 4 outfit changes</div>
+                        <div class="feature">🖼️ Premium backgrounds</div>
+                        <div class="feature">📱 Multiple formats</div>
+                        <div class="feature">✏️ 2 revisions</div>
+                        <div class="feature">💬 WhatsApp support</div>
+                        <div class="feature">⏱️ 24 hours delivery</div>
+                    </div>
+                    <button class="btn btn--primary select-package" data-package="Growth">Select Package</button>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Premium</h3>
+                        <div class="price">₹15,000</div>
+                    </div>
+                    <div class="package-features">
+                        <div class="feature">📸 25 model photos</div>
+                        <div class="feature">👗 8 outfit changes</div>
+                        <div class="feature">🖼️ Custom backgrounds</div>
+                        <div class="feature">🎥 Video content</div>
+                        <div class="feature">✏️ Unlimited revisions</div>
+                        <div class="feature">⭐ Priority support</div>
+                        <div class="feature">⏱️ 12 hours delivery</div>
+                    </div>
+                    <button class="btn btn--outline select-package" data-package="Premium">Select Package</button>
+                </div>
+            </div>
+
+            <button class="btn btn--primary cta-button" onclick="showBenefits()">
+                Why Choose Us? 🌟
+            </button>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section hidden" id="benefits-section">
+        <div class="container">
+            <h2>Why Smart Catalog Studio?</h2>
+            <p class="section-subtitle">Experience the future of fashion photography</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>80% Cost Savings</h3>
+                    <p>Save thousands compared to traditional shoots. No model fees, studio rent, or equipment costs.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>24-48 Hour Delivery</h3>
+                    <p>Get your photos in 1-2 days, not weeks. Perfect for fast-moving fashion trends.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>No Booking Hassles</h3>
+                    <p>No model scheduling, weather delays, or last-minute cancellations. Just results.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📸</div>
+                    <h3>Professional Quality</h3>
+                    <p>Studio-grade photos perfect for catalogs, Instagram, and e-commerce platforms.</p>
+                </div>
+            </div>
+
+            <div class="time-comparison">
+                <h3>Time Comparison</h3>
+                <div class="time-grid">
+                    <div class="time-card traditional-time">
+                        <h4>Traditional Shoot</h4>
+                        <div class="timeline">
+                            <div class="timeline-item">Day 1: Model booking</div>
+                            <div class="timeline-item">Day 2-3: Studio arrangement</div>
+                            <div class="timeline-item">Day 4: Actual shoot</div>
+                            <div class="timeline-item">Day 5-7: Editing</div>
+                        </div>
+                        <div class="total-time">Total: 7 Days</div>
+                    </div>
+
+                    <div class="time-card virtual-time">
+                        <h4>Virtual Shoot</h4>
+                        <div class="timeline">
+                            <div class="timeline-item">Day 1: Send product photos</div>
+                            <div class="timeline-item">Day 2: AI processing</div>
+                            <div class="timeline-item">Day 2: Delivery!</div>
+                        </div>
+                        <div class="total-time">Total: 2 Days</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn--primary cta-button" onclick="showGallery()">
+                See Sample Work 🎨
+            </button>
+        </div>
+    </section>
+
+    <!-- Sample Gallery -->
+    <section class="gallery-section hidden" id="gallery-section">
+        <div class="container">
+            <h2>Our Work Showcase</h2>
+            <p class="section-subtitle">Before & After Transformations</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="category-title">Ethnic Wear</div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1759146072/pplx_project_search_images/b40a37529a36af10f2d507f19ed1a7c13dc7174d.png" alt="Ethnic wear sample">
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="category-title">Western Fashion</div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1755340573/pplx_project_search_images/6ec07481c3885efaa085361e871ebb768993ad2d.png" alt="Western fashion sample">
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="category-title">Casual Clothing</div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1754718445/pplx_project_search_images/f42ab686e7e61eb29cb52fb0023bdb870fa7f5a7.png" alt="Casual clothing sample">
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="category-title">Formal Attire</div>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1759146072/pplx_project_search_images/fd9d2abfb2586870658348b9ae72a5597951545e.png" alt="Formal attire sample">
+                </div>
+            </div>
+
+            <div class="quality-guarantee">
+                <h3>🏆 Quality Guarantee</h3>
+                <p>Every photo is manually reviewed and edited by our professional team to ensure catalog-grade quality.</p>
+            </div>
+
+            <button class="btn btn--primary cta-button" onclick="showContact()">
+                Get Free Sample 🎁
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-section hidden" id="contact-section">
+        <div class="container">
+            <h2>Get Your Free Sample Today!</h2>
+            <p class="section-subtitle">See our quality before you commit. No strings attached.</p>
+            
+            <div class="contact-container">
+                <div class="contact-form-card">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="fullName">Full Name *</label>
+                            <input type="text" class="form-control" id="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="businessName">Business Name *</label>
+                            <input type="text" class="form-control" id="businessName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="whatsappNumber">WhatsApp Number *</label>
+                            <input type="tel" class="form-control" id="whatsappNumber" placeholder="+91-XXXXX-XXXXX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="serviceInterest">Service Interest</label>
+                            <select class="form-control" id="serviceInterest">
+                                <option value="starter">Starter Package (₹4,000)</option>
+                                <option value="growth" selected>Growth Package (₹8,000)</option>
+                                <option value="premium">Premium Package (₹15,000)</option>
+                                <option value="custom">Custom Requirements</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="freeSample" checked>
+                                <span class="checkmark"></span>
+                                Yes, I want a FREE sample of 2 photos to see the quality
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--full-width">
+                            🎁 Get Free Sample Now!
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>📱 WhatsApp</h4>
+                        <p>+91-XXXXX-XXXXX</p>
+                        <a href="#" class="btn btn--outline whatsapp-btn" target="_blank">
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>📧 Email</h4>
+                        <p>hello@smartcatalogstudio.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>🌐 Website</h4>
+                        <p>www.smartcatalogstudio.com</p>
+                    </div>
+                    
+                    <div class="urgency-message">
+                        <h4>⏰ Limited Time Offer</h4>
+                        <p>First 50 clients get 20% OFF on their first order. Don't miss out!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal hidden" id="successModal">
+        <div class="modal-content">
+            <h3>🎉 Thank You!</h3>
+            <p>We'll send your FREE sample within 24 hours via WhatsApp.</p>
+            <p>Check your WhatsApp for updates!</p>
+            <button class="btn btn--primary" onclick="closeModal()">Great!</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
