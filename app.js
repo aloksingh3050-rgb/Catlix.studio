@@ -277,16 +277,16 @@ function sendWhatsAppMessage(formData) {
         `Please contact me to discuss further.`
     );
     
-    const whatsappUrl = `https://wa.me/919999999999?text=${message}`;
+    const whatsappUrl = `https://wa.me/918533995183?text=${message}`;
     window.open(whatsappUrl, '_blank');
 }
 
 function openWhatsApp() {
     const message = encodeURIComponent(
-        `Hello! I'm interested in your Smart Catalog Studio virtual model photoshoot services. Can you tell me more about your packages?`
+        `Hello! I'm interested in your Catlix Studio virtual model photoshoot services. Can you tell me more about your packages?`
     );
     
-    const whatsappUrl = `https://wa.me/919999999999?text=${message}`;
+    const whatsappUrl = `https://wa.me/918533995183?text=${message}`;
     window.open(whatsappUrl, '_blank');
 }
 
