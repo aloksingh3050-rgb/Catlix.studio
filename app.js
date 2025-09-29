@@ -1,4 +1,4 @@
-// Smart Catalog Studio - Virtual Model Photoshoot App
+// Catlix studio - Virtual Model Photoshoot App
 
 // Data from JSON
 const packagesData = {
@@ -269,7 +269,7 @@ function handleFormSubmission() {
 function sendWhatsAppMessage(formData) {
     const packageInfo = packagesData[formData.serviceInterest];
     const message = encodeURIComponent(
-        `Hello! I'm interested in Smart Catalog Studio services.\n\n` +
+        `Hello! I'm interested in Catlix studio services.\n\n` +
         `Name: ${formData.fullName}\n` +
         `Business: ${formData.businessName}\n` +
         `Package Interest: ${packageInfo ? packageInfo.name : 'Custom'} (₹${packageInfo ? packageInfo.price.toLocaleString('en-IN') : 'TBD'})\n` +
@@ -286,7 +286,7 @@ function openWhatsApp() {
         `Hello! I'm interested in your Catlix Studio virtual model photoshoot services. Can you tell me more about your packages?`
     );
     
-    const whatsappUrl = `https://wa.me/918533995183?text=${message}`;
+    const whatsappUrl = `https://wa.me/919999999999?text=${message}`;
     window.open(whatsappUrl, '_blank');
 }
 
@@ -352,7 +352,7 @@ function formatPhoneNumber(phone) {
 
 // Event Listeners and Initialization
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Smart Catalog Studio App Initialized');
+    console.log('Catlix studio App Initialized');
     
     // Initialize all components
     initializePackageSelection();
